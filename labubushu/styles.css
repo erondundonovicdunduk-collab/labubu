@@ -1,0 +1,67 @@
+/* Base styles */
+:root {
+  --bg: #0b0c10;
+  --panel: #111217;
+  --text: #e8e8ea;
+  --muted: #a1a1aa;
+  --brand: #2f80ff;
+  --ok: #16a34a;
+  --error: #ef4444;
+  --border: #24252b;
+  --radius: 16px;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  line-height: 1.6;
+}
+a { color: var(--brand); }
+.site-header, .site-footer { max-width: 1100px; margin: 0 auto; padding: 16px 20px; }
+.brand { margin: 0; font-size: clamp(20px, 4vw, 36px); }
+main { max-width: 1100px; margin: 0 auto; padding: 16px 20px 80px; }
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.card { border: 1px solid var(--border); background: var(--panel); border-radius: var(--radius); padding: 16px; }
+.center { display: grid; place-items: center; margin-top: 20px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 14px; border: 1px solid var(--border); background: var(--panel); color: var(--text); border-radius: 12px; cursor: pointer; }
+.btn-primary { background: var(--brand); color: #fff; border-color: transparent; }
+.muted { color: var(--muted); }
+.small { font-size: .9rem; }
+.ok { color: var(--ok); }
+.error { color: var(--error); }
+.status { margin-top: 8px; font-size: .95rem; color: var(--muted); }
+.list { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; flex-wrap: wrap; }
+.tag { padding: 8px 10px; border-radius: 999px; border: 1px solid var(--border); background: #141622; color: var(--text); cursor: pointer; }
+.accordion { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px; background: #161925; color: var(--text); text-align: left; cursor: pointer; }
+.panel { margin-top: 10px; }
+.topic-box { margin-top: 10px; padding: 12px; border: 1px dashed var(--border); border-radius: 12px; min-height: 60px; background: #0f111a; }
+
+/* Bottle */
+.bottle svg { display: block; margin: 0 auto; }
+
+/* Oak button look (Minecraft-ish without assets) */
+.oak {
+  background: repeating-linear-gradient( 90deg, #8c5a2b, #8c5a2b 6px, #7a4e25 6px, #7a4e25 12px);
+  border-color: #5c391a;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0,0,0,.4);
+  box-shadow: inset 0 2px 0 rgba(255,255,255,.1), 0 2px 0 #3d2712, 0 4px 6px rgba(0,0,0,.3);
+}
+.oak:active { transform: translateY(1px); box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 1px 0 #3d2712, 0 2px 4px rgba(0,0,0,.35); }
+
+.modal { position: fixed; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,.55); padding: 20px; }
+.modal-card { max-width: 420px; width: 100%; }
+[hidden] { display: none !important; }
+
+input[type="file"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0f1016;
+  color: var(--text);
+}

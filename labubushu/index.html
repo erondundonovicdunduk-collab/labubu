@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Labovu sizem problemlərinizi həll edəcəkdir</title>
+  <meta name="description" content="Brauzer əsaslı demo: kod, sənəd yükləmələri, Konstitusiya bölmələri, butulka və Minecraft üslublu düymə.">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="gate.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="brand">Labovu sizem problemlərinizi həll edəcəkdir</h1>
+  </header>
+
+  <main>
+    <section class="grid">
+      <div class="card">
+        <h2>PDF — Qaydalar</h2>
+        <p class="muted">Buraya qaydalar olan PDF faylı seçin.</p>
+        <input type="file" id="pdfInput" accept="application/pdf">
+        <p id="pdfStatus" class="status">Fayl seçilməyib.</p>
+      </div>
+
+      <div class="card">
+        <h2>Word — Nəticələr</h2>
+        <p class="muted">Buraya nəticələri olan Word faylı seçin.</p>
+        <input type="file" id="docInput" accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+        <p id="docStatus" class="status">Fayl seçilməyib.</p>
+      </div>
+
+      <div class="card">
+        <h2>Konstitusiya Azərbaycan</h2>
+        <button class="accordion" aria-expanded="false">Bölmələri göstər</button>
+        <div class="panel" hidden>
+          <ul class="list">
+            <li><button class="tag" data-topic="aml">Pul yuyulmasına dair</button></li>
+            <li><button class="tag" data-topic="credit">Kreditlərə dair</button></li>
+            <li><button class="tag" data-topic="ipoteka">İpotekaya dair</button></li>
+          </ul>
+          <div id="topicBox" class="topic-box" aria-live="polite">Bölmə seçin.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="center">
+      <div class="bottle card">
+        <h2>Butulka</h2>
+        <svg viewBox="0 0 160 220" width="220" height="300" aria-label="Minecraft butulkası">
+          <rect x="60" y="10" width="40" height="20" fill="#8fb3ff"></rect>
+          <rect x="50" y="30" width="60" height="20" fill="#bcd2ff"></rect>
+          <rect x="40" y="50" width="80" height="150" fill="#e6f0ff" stroke="#a8c1ff" stroke-width="4"></rect>
+          <rect id="fill" x="44" y="196" width="72" height="0" fill="#6fbafe"></rect>
+        </svg>
+        <p id="prepNote" class="muted small" hidden>Fayl hazırlanır, zəhmət olmasa gözləyin...</p>
+        <button id="oakBtn" class="btn oak" hidden>◼︎ Dub düyməsi</button>
+        <button id="downloadBtn" class="btn btn-primary" disabled>Yüklə nəticə</button>
+        <p id="readyNote" class="ok" hidden>Hazırdır! Faylı yükləyə bilərsiniz.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Labovu</p>
+  </footer>
+
+  <!-- Kod pəncərəsi -->
+  <section id="gate" class="modal" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+    <form class="card modal-card" id="gateForm" onsubmit="return false;">
+      <h2 id="gateTitle">Giriş üçün kod</h2>
+      <p class="muted">5 rəqəmdən ibarət kodu daxil edin.</p>
+      <label>
+        <span>Kod</span>
+        <input type="password" id="codeInput" minlength="5" maxlength="5" placeholder="•••••" required>
+      </label>
+      <div class="row">
+        <button class="btn btn-primary" id="submitBtn">Daxil ol</button>
+        <button class="btn btn-ghost" id="showBtn" type="button">Göstər</button>
+      </div>
+      <p id="err" class="error" role="alert" hidden>Səhv kod.</p>
+    </form>
+  </section>
+</body>
+</html>
